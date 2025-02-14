@@ -15,7 +15,13 @@ description = """
 Library to support the reading and writing of zip files.
 """
 edition = "2021"
-exclude = ["tests/**", "examples/**", ".github/**", "fuzz_read/**", "fuzz_write/**"]
+exclude = [
+    "tests/**",
+    "examples/**",
+    ".github/**",
+    "fuzz_read/**",
+    "fuzz_write/**",
+]
 build = "src/build.rs"
 
 [package.metadata.docs.rs]
@@ -37,12 +43,10 @@ indexmap = "2"
 hmac = { version = "0.12", optional = true, features = ["reset"] }
 memchr = "2.7"
 pbkdf2 = { version = "0.12", optional = true }
-rand = { version = "0.8", optional = true }
+rand = { version = "0.9", optional = true }
 sha1 = { version = "0.10", optional = true }
 thiserror = "2"
-time = { workspace = true, optional = true, features = [
-    "std",
-] }
+time = { workspace = true, optional = true, features = ["std"] }
 zeroize = { version = "1.8", optional = true, features = ["zeroize_derive"] }
 zstd = { version = "0.13", optional = true, default-features = false }
 zopfli = { version = "0.8", optional = true }
@@ -65,7 +69,15 @@ clap = { version = "=4.4.18", features = ["derive"] }
 tempfile = "3.8"
 
 [features]
-aes-crypto = ["aes", "constant_time_eq", "hmac", "pbkdf2", "sha1", "rand", "zeroize"]
+aes-crypto = [
+    "aes",
+    "constant_time_eq",
+    "hmac",
+    "pbkdf2",
+    "sha1",
+    "rand",
+    "zeroize",
+]
 chrono = ["chrono/default"]
 _deflate-any = []
 _all-features = [] # Detect when --all-features is used
